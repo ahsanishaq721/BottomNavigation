@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.bottomnavigation.navigation.NavGraph
 import com.example.bottomnavigation.ui.theme.BottomNavigationTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,10 +21,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BottomNavigationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                   val navController = rememberNavController()
+                    NavGraph(
+                        navController = navController,
+                        modifier = Modifier.padding(it)
                     )
                 }
             }
