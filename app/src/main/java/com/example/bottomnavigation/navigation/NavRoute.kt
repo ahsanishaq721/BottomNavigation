@@ -3,8 +3,8 @@ package com.example.bottomnavigation.navigation
 sealed class NavRoute(val path: String) {
     object Home : NavRoute("home")
     object Profile : NavRoute("profile") {
-        val id = "id"
-        val showDetails = "showDetails"
+        const val id = "id"
+        const val showDetails = "showDetails"
     }
     object Settings : NavRoute("settings"){
         val query = "query"
